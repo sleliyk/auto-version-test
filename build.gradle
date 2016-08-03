@@ -15,6 +15,7 @@ group = group
 version = version
 
 release {
+    revertOnFail = false
     preTagCommitMessage = '[Release]: '
     tagCommitMessage = '[Release]: creating tag '
     newVersionCommitMessage = '[Release]: new snapshot version '
