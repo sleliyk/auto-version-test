@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+}
+
+plugins {
+    id 'java'
+    id 'maven'
+    id 'net.researchgate.release' version '2.1.2'
+}
+
+group = group
+version = version
+
+release {
+    preTagCommitMessage = '[Release]: '
+    tagCommitMessage = '[Release]: creating tag '
+    newVersionCommitMessage = '[Release]: new snapshot version '
+    tagTemplate = 'v${version}'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+    archives jar
+}
