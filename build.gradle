@@ -8,7 +8,7 @@ buildscript {
 plugins {
     id 'java'
     id 'maven'
-    id 'net.researchgate.release' version '2.1.2'
+    id 'net.researchgate.release' version '2.4.0'
 }
 
 group = group
@@ -19,6 +19,7 @@ release {
     tagCommitMessage = '[Release]: creating tag '
     newVersionCommitMessage = '[Release]: new snapshot version '
     tagTemplate = 'v${version}'
+    versionPropertyFile = 'gradle.properties'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
